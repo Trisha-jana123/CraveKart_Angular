@@ -1,59 +1,80 @@
-# CraveKartApp
+# 🛒 CraveKart - AI-Integrated Food Ordering Web App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.5.
+CraveKart is a full-stack food ordering application built using **Angular 20** and **Node.js**, integrated with an **AI-powered chatbot** using **OpenRouter API** (free models). It simulates Swiggy-like behavior with category-based ordering, a persistent cart using localStorage, and smart user interaction via chat.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Features
 
-```bash
-ng serve
+### 🌐 Frontend (Angular)
+- Home page with food category cards (Indian, Chinese, etc.)
+- Login & Signup using Reactive Forms
+- Product listing with dummy static data (images, names, prices)
+- Add to Cart functionality
+- Live cart count in navbar
+- Cart page:
+  - Quantity controls
+  - Grand total calculation
+  - Persists even after refresh/logout using `localStorage`
+
+### 💬 AI Chatbot
+- Chat interface built with Angular
+- Messages sent to Node.js server
+- Integrated with OpenRouter's free LLM (AI) models
+- Works like a real assistant (tells jokes, answers questions)
+- Background AI server running via Node.js
+- Dummy fallback also supported if real AI quota ends
+
+### 🔙 Backend (Node.js)
+- Simple Express server
+- CORS enabled
+- `.env` support using `dotenv`
+- AI API request made to OpenRouter with your API key
+- Route: `POST /ask` receives message and sends AI reply
+
+---
+
+## 🧠 How localStorage is used
+- When items are added to the cart, they are stored in `localStorage`
+- On page load (even after refresh or logout-login), cart is restored
+- Ensures data persistence without any database
+
+---
+
+## 🧪 Difficulties Faced
+- Error `No endpoints found for model` — had to search for working free models like:
+  - `openrouter/auto`
+  - `gryphe/mythomist-7b`
+- `429 Quota Exceeded` and fallback to dummy AI
+- Angular standalone vs non-standalone component confusion
+
+---
+
+## 📁 Project Structure
 ```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+CraveKart-app/
+├── src/
+│ └── app/
+│ ├── pages/
+│ │ ├── home/
+│ │ ├── login/
+│ │ ├── signup/
+│ │ ├── cart/
+│ │ ├── food-order/
+│ │ └── chatbot/
+│ └── services/
+│ └── ai.ts
+├── server.js
+├── .env
+└── README.md
 ```
+## 🖼️ Screenshot
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+![Chatbot in action](./screenshots/preview.png)
+![Chatbot in action1](./screenshots/preview1.png)
+![Chatbot in action2](./screenshots/preview2.png)
+![Chatbot in action3](./screenshots/preview3.png)
+![Chatbot in action4](./screenshots/preview4.png)
+![Chatbot in action5](./screenshots/preview5.png)
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
