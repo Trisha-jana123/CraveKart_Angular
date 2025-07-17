@@ -1,0 +1,11 @@
+<div class="form-background">
+  <div class="form-wrapper">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <input type="email" placeholder="Email" formControlName="email">
+      <input type="password" placeholder="Password" formControlName="password">
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+  </div>
+</div>

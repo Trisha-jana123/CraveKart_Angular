@@ -1,0 +1,13 @@
+<div class="form-background">
+  <div class="form-wrapper">
+    <h2>Signup</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+      <input type="text" placeholder="Username" formControlName="username">
+      <input type="email" placeholder="Email" formControlName="email">
+      <input type="password" placeholder="Password" formControlName="password">
+
+      <button type="submit">Signup</button>
+    </form>
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<nav class="order-nav">
+  <div class="logo">CraveKart</div>
+  <div class="nav-actions">
+    <div class="cart-icon-wrapper" (click)="goToCart()">
+      🛒 <span class="cart-count">{{ cartCount }}</span>
+    </div>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</nav>
+
+<div class="cart-main">
+  <!-- Left: Cart items -->
+  <div class="cart-left">
+    <h2>Your Cart</h2>
+
+    <div *ngIf="cart.length === 0">
+      <p>You do not have any items in your cart 🛒</p>
+    </div>
+
+    <div class="cart-item" *ngFor="let item of cart">
+      <img [src]="item.image" alt="{{ item.name }}">
+      <div class="item-details">
+        <h3>{{ item.name }}</h3>
+        <p>₹{{ item.price }}</p>
+        <div class="qty-controls">
+          <button (click)="decreaseQty(item)">−</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="increaseQty(item)">+</button>
+        </div>
+        <p class="subtotal">Subtotal: ₹{{ item.price * item.quantity }}</p>
+        <button class="remove-btn" (click)="removeItem(item)">Remove</button>
+      </div>
+    </div>
+
+    <div class="cart-total" *ngIf="cart.length > 0">
+      <h3>Total: ₹{{ total }}</h3>
+      <button (click)="clearCart()" class="clear-btn">Clear Cart</button>
+    </div>
+  </div>
+
+  <!-- Right: Feedback box -->
+  <div class="cart-right">
+    <div class="feedback-box">
+      <h3>We value your feedback</h3>
+      <textarea [(ngModel)]="feedbackText" placeholder="Write your feedback here..."></textarea>
+      <button class="submit-btn" (click)="submitFeedback()">Submit</button>
+      <p *ngIf="feedbackSubmitted" class="thank-you"> Thank you for your feedback!</p>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Info at the bottom -->
+<div class="contact-info">
+  <h4>Contact Us</h4>
+  <p>Email: trisha&#64;jana.com</p>
+  <p>Location: India</p>
+</div>

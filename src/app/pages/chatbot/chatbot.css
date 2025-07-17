@@ -1,0 +1,62 @@
+.chat-container {
+  background-image: url('/signup-bg-hd.jpg.jpg');
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fffaf4;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chat-container div.user,
+.chat-container div.bot {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  word-wrap: break-word;
+}
+
+.user {
+  background-color: #d1ecf1;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.bot {
+  background-color: #f1f0f0;
+  align-self: flex-start;
+  text-align: left;
+}
+
+.chat-input {
+  display: flex;
+  margin-top: 10px;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.chat-input button {
+  margin-left: 10px;
+  padding: 10px 18px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.chat-input button:hover {
+  background-color: #e64a19;
+}
+

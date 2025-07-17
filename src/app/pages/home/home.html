@@ -1,0 +1,87 @@
+<nav class="top-nav">
+  <div class="logo">CraveKart</div>
+
+  <div class="auth-buttons">
+  <div class="cart-icon-wrapper" routerLink="/cart">
+    🛒
+    <span class="cart-count">{{ cartCount }}</span>
+  </div>
+  <button routerLink="/login">Login</button>
+  <button routerLink="/signup">Signup</button>
+</div>
+
+</nav>
+
+
+<div class="home-container">
+  <section class="hero">
+    <h3 *ngIf="user?.username">Welcome, {{ user.username }} 👋</h3>
+    <h1>Welcome to CraveKart 🍽️</h1>
+    <p>Satisfy your midnight cravings from CraveKart!!!</p>
+
+    <div class="hero-offers">
+      <div class="hero-offer">
+        🍔 Food delivery from restaurants <br>
+        <span class="big-text">Up to 60% Off!</span>
+      </div>
+      <div class="hero-offer">
+        🥗 Flat ₹100 off <br>
+        <span class="big-text">on your first order!</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="food-section">
+    <h2>Popular Dishes</h2>
+    <div class="food-grid">
+      <div class="food-card" *ngFor="let food of foods" [routerLink]="['/order', food.category]" style="cursor: pointer;">
+        <img [src]="food.image" alt="food image">
+      </div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>North-Indian Dishes</h2>
+    <div class="food-grid">
+      <div class="food-card" *ngFor="let food of NorthIndianFoods" [routerLink]="['/order', food.category]" style="cursor: pointer;">
+        <img [src]="food.image" alt="food image">
+      </div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>South-Indian Dishes</h2>
+    <div class="food-grid">
+      <div class="food-card" *ngFor="let food of SouthIndianFoods" [routerLink]="['/order', food.category]" style="cursor: pointer;">
+        <img [src]="food.image" alt="food image">
+      </div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>Chinese Dishes</h2>
+    <div class="food-grid">
+      <div class="food-card" *ngFor="let food of ChineseFoods" [routerLink]="['/order', food.category]" style="cursor: pointer;">
+        <img [src]="food.image" alt="food image">
+      </div>
+    </div>
+  </section>
+
+  <section class="category-section">
+    <h2>Italian Dishes</h2>
+    <div class="food-grid">
+      <div class="food-card" *ngFor="let food of ItalianFoods" [routerLink]="['/order', food.category]" style="cursor: pointer;">
+        <img [src]="food.image" alt="food image">
+      </div>
+    </div>
+  </section>
+
+  <footer class="contact-footer">
+    <h2>Contact Us</h2>
+    <p>Email: trisha&#64;jana.com</p>
+    <p>Location: India</p>
+  </footer>
+
+  <button routerLink="/chat" class="chatbot-float">💬 Chat with CraveBot</button>
+
+</div>
